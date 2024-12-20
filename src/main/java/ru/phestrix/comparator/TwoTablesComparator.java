@@ -1,6 +1,5 @@
 package ru.phestrix.comparator;
 
-import ru.phestrix.storage.TableFactory;
 import ru.phestrix.storage.TableOfDay;
 
 import java.util.List;

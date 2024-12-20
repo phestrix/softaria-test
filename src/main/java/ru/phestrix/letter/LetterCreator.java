@@ -6,7 +6,7 @@ public class LetterCreator {
     private final List<String> missingUrls;
     private final List<String> changedUrls;
     private final List<String> newUrls;
-
+    private StringBuilder letter;
     public LetterCreator(List<String> missingUrls, List<String> changedUrls, List<String> newUrls) {
         this.missingUrls = missingUrls;
         this.changedUrls = changedUrls;
@@ -14,7 +14,7 @@ public class LetterCreator {
     }
 
     public void printLetter() {
-        StringBuilder letter = new StringBuilder();
+        letter = new StringBuilder();
         letter.append("Здравствуйте, дорогая и.о. секретаря\n\n");
         letter.append("За последние сутки во вверенных Вам сайтах произошли следующие изменения:\n\n");
 
@@ -30,5 +30,9 @@ public class LetterCreator {
     private void appendSection(StringBuilder letter, String header, List<String> urls) {
         letter.append(header).append("\n");
         urls.forEach(url -> letter.append(url).append("\n"));
+    }
+
+    public String getLetter() {
+        return letter.toString();
     }
 }
