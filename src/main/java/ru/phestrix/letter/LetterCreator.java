@@ -3,9 +3,9 @@ package ru.phestrix.letter;
 import java.util.List;
 
 public class LetterCreator {
-    private List<String> missingUrls;
-    private List<String> changedUrls;
-    private List<String> newUrls;
+    private final List<String> missingUrls;
+    private final List<String> changedUrls;
+    private final List<String> newUrls;
 
     public LetterCreator(List<String> missingUrls, List<String> changedUrls, List<String> newUrls) {
         this.missingUrls = missingUrls;
@@ -15,8 +15,8 @@ public class LetterCreator {
 
     public void printLetter() {
         StringBuilder letter = new StringBuilder();
-        letter.append("Здравствуйте, дорогая и.о. секретаря\n");
-        letter.append("За последние сутки во вверенных Вам сайтах произошли следующие изменения:\n");
+        letter.append("Здравствуйте, дорогая и.о. секретаря\n\n");
+        letter.append("За последние сутки во вверенных Вам сайтах произошли следующие изменения:\n\n");
 
         appendSection(letter, "Исчезли следующие страницы:", missingUrls);
         appendSection(letter, "Появились следующие новые страницы:", newUrls);

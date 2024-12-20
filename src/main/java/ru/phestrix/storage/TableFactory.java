@@ -5,8 +5,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class TableFactory {
-    public static <Url, Html> TableOfDay createPrototypeTable() {
-        return new TableOfDay<Url, Html>() {
+    public static <Url, Html> TableOfDay<Url, Html> createPrototypeTable() {
+        return new TableOfDay<>() {
             @Override
             public void insertData(Url key, Html value) {
                 table.put(key, value);

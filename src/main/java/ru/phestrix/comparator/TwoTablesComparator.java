@@ -14,21 +14,21 @@ public class TwoTablesComparator<Url, Html> implements Comparator {
     private List<Url> changedUrls;
     private List<Url> newUrls;
 
-    public TwoTablesComparator() {
-        today = TableFactory.createPrototypeTable();
-        yesterday = TableFactory.createPrototypeTable();
+    public TwoTablesComparator(TableOfDay<Url, Html> today, TableOfDay<Url, Html> yesterday) {
+        this.today = today;
+        this.yesterday = yesterday;
     }
 
     @Override
     public void compare() {
-        List<Url> missingUrls = yesterday.getKeys().stream()
+        missingUrls = yesterday.getKeys().stream()
                 .filter(url -> !today.getKeys().contains(url))
                 .toList();
-        List<Url> changedUrls = yesterday.getKeys().stream()
+        changedUrls = yesterday.getKeys().stream()
                 .filter(url -> today.getKeys().contains(url))
                 .filter(url -> !today.selectData(url).equals(yesterday.selectData(url)))
                 .toList();
-        List<Url> newUrls = today.getKeys().stream()
+        newUrls = today.getKeys().stream()
                 .filter(url -> !yesterday.getKeys().contains(url)).toList();
 
     }

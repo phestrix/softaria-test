@@ -6,7 +6,7 @@ import java.util.List;
 public abstract class TableOfDay<Url, Html> {
     protected HashMap<Url, Html> table;
 
-    public void createTable() {
+    public TableOfDay() {
         table = new HashMap<>();
     }
 
